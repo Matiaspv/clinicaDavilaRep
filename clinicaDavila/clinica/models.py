@@ -12,7 +12,8 @@ class Especialidad(models.Model):
 
 class Doctor(models.Model):
 
-    rut = models.UUIDField(primary_key=True, help_text='Rut unico del doctors')
+    rut = models.IntegerField(primary_key=True, help_text='Rut unico del doctors')
+    dv = models.CharField(max_length=1, default='0')
     nombre = models.CharField(max_length=200)
     apellido = models.CharField(max_length=200)
     especialidad = models.ForeignKey('Especialidad', on_delete=models.SET_NULL, null=True)
@@ -20,4 +21,5 @@ class Doctor(models.Model):
     def __str__(self):
         return f'{self.rut}, {self.nombre}, ({self.especialidad.name})'
 
-
+    def get_absolute_url(self):
+        return reverse('doctor-detail', args=[str(self.rut)])
