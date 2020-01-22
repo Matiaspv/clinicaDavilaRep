@@ -3,8 +3,20 @@ from .models import Doctor, Especialidad
 from django.views import generic
 # Create your views here.
 
-class DoctorListadoView(generic.ListView):
+class DoctorDetailView(generic.ListView):
     model = Doctor
+
+class DoctorListView(generic.ListView):
+    model = Doctor
+
+    def get_context_data(self, **kwargs):
+
+        context = super(DoctorListView, self).get_context_data(**kwargs)
+
+        context['some_data'] = 'This is just some data'
+
+        return context
+
 
 def index(request):
 

@@ -17,7 +17,7 @@
          <header>
             <div class="container-fluid">
                 <br>
-                <a  href="{% url 'index' %}"><img src="{% static 'clinica/images/foto2.png' %}" alt="Logo clinica"></a>
+                {% load static %}<a  href="{% url 'index' %}"><img src="{% static 'clinica/images/foto2.png' %}" alt="Logo clinica"></a>
                 
               </div>
               

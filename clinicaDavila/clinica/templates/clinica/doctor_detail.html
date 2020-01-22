@@ -1,0 +1,9 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<h1>Doctor: {{ doctor.nombre }}</h1>
+
+<p><strong>Doctor: </strong><a href="{% url 'doctor-detail' doctor.nombre.pk %}">{{ doctor.nombre }}</a> </p>
+<p><strong>Rut: </strong> {{ doctor.rut }} </p>
+<p><strong>Especialidad: </strong>{{ doctor.especialidad }}</p>
