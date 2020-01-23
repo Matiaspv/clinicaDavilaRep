@@ -8,7 +8,7 @@
         <ul>
             {% for doctor in doctores_list %}
             <li>
-                <a href="{{ doctor.get_absolute_url }}">{{ doctor.nombre }}</a> {{{ doctor.especialidad }}}
+                <a href="{{ doctor.get_absolute_url }}">{{ doctor.nombre }}</a> 
             </li>
             {% endfor %}
             
@@ -16,6 +16,6 @@
         </ul>
         {% else %}
             <p>No hay doctores disponibles! </p>
-        {% end if %}
+        {% endif %}
 
 {% endblock %} 

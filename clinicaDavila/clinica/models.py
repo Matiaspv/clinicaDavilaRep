@@ -18,8 +18,11 @@ class Doctor(models.Model):
     apellido = models.CharField(max_length=200)
     especialidad = models.ForeignKey('Especialidad', on_delete=models.SET_NULL, null=True)
 
-    def __str__(self):
-        return f'{self.rut}, {self.nombre}, ({self.especialidad.name})'
+    class Meta:
+        ordering = ['nombre' , 'apellido']
 
     def get_absolute_url(self):
         return reverse('doctor-detail', args=[str(self.rut)])
+
+    def __str__(self):
+        return f'{self.rut}, {self.nombre}, ({self.especialidad.name})'

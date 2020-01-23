@@ -6,4 +6,4 @@
 
 <p><strong>Doctor: </strong><a href="{% url 'doctor-detail' doctor.nombre.pk %}">{{ doctor.nombre }}</a> </p>
 <p><strong>Rut: </strong> {{ doctor.rut }} </p>
-<p><strong>Especialidad: </strong>{{ doctor.especialidad }}</p>
+<p><strong>Especialidad: </strong>{% for especialdad in doctor.especialidad.all %}{{ especialidad }}{% if not forloop.last %},{% endif %} {% endfor %}</p>
