@@ -24,12 +24,14 @@ class DoctorDetailView(generic.ListView):
 
 class DoctorListView(generic.ListView):
     model = Doctor
+    paginate_by = 10
 
     def get_context_data(self, **kwargs):
 
         context = super(DoctorListView, self).get_context_data(**kwargs)
 
         context['some_data'] = 'This is just some data'
+        
 
         return context
 
